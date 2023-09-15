@@ -5,7 +5,7 @@ import { UserEvent } from "../../lib/services";
 const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;
 
 export const handlers = [
-  rest.get(`${API_BASE_URL}/events`, (req, res, ctx) => {
+  rest.get(`${API_BASE_URL}/events`, (_, res, ctx) => {
     const userEvents: UserEvent[] = [
       // Define your mocked user events here
       // Example:
@@ -31,7 +31,7 @@ export const handlers = [
     return res(ctx.json(newEvent), ctx.delay(150));
   }),
 
-  rest.put(`${API_BASE_URL}/events/:id`, (req, res, ctx) => {
+  rest.put(`${API_BASE_URL}/events/:id`, (_, res, ctx) => {
     const updatedEvent: UserEvent = {
       id: 1,
       title: "New Event title",
@@ -42,5 +42,5 @@ export const handlers = [
     return res(ctx.json(updatedEvent));
   }),
 
-  rest.delete(`${API_BASE_URL}/events/:id`, (req, res, ctx) => res(ctx.status(204))),
+  rest.delete(`${API_BASE_URL}/events/:id`, (_, res, ctx) => res(ctx.status(204))),
 ];
