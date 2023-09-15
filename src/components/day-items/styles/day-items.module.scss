@@ -1,26 +1,26 @@
-@import "../../../styles/index.scss";
+@import "../../../styles/index";
 
 .day-items {
   display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: auto;
   align-items: center;
+  padding: get-spacing("m");
   border: solid 1px get-color("border");
   border-radius: get-border-radius("xl");
-  box-sizing: border-box;
-  flex-direction: column;
-  gap: get-spacing("m");
   margin: get-spacing("xl");
-  padding: get-spacing("m");
-  width: auto;
+  gap: get-spacing("m");
 
   &:last-of-type {
     margin-bottom: calc(get-spacing("m") * 10);
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (width >= 768px) {
+    text-align: center;
     display: grid;
     grid-gap: get-spacing("m");
     grid-template-columns: auto 1fr;
-    text-align: center;
 
     &:last-of-type {
       margin-bottom: get-spacing("xl");
@@ -28,14 +28,14 @@
   }
 
   &__date {
-    display: flex;
-    align-items: center;
     color: get-color("secondary");
+    display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin: get-spacing("m");
 
-    @media screen and (min-width: 768px) {
+    @media screen and (width >= 768px) {
       margin: get-spacing("xl");
     }
   }
@@ -53,11 +53,12 @@
       text-align: center;
       width: 100%;
     }
+
     display: flex;
     flex-direction: column;
     gap: get-spacing("m");
 
-    @media screen and (min-width: 768px) {
+    @media screen and (width >= 768px) {
       display: grid;
       grid-gap: get-spacing("m");
       grid-template-columns: repeat(3, 1fr);

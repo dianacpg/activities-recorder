@@ -1,11 +1,11 @@
-@import "../../../styles/index.scss";
+@import "../../../styles/index";
 
 .empty-state {
+  color: rgb(124 125 126);
+  text-align: center;
+  box-sizing: border-box;
+  padding: get-spacing("xl");
   border: solid 1px get-color("border");
   border-radius: get-border-radius("xl");
-  box-sizing: border-box;
-  color: rgb(124, 125, 126);
   margin: get-spacing("xl");
-  padding: get-spacing("xl");
-  text-align: center;
 }

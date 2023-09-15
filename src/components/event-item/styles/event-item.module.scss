@@ -1,10 +1,10 @@
-@import "../../../styles/index.scss";
+@import "../../../styles/index";
 
 .event-item {
-  display: flex;
   background-color: get-color("primary");
-  border-radius: get-border-radius("l");
+  display: flex;
   box-sizing: border-box;
+  border-radius: get-border-radius("l");
   margin: 0 get-spacing("l");
   overflow-x: auto;
 

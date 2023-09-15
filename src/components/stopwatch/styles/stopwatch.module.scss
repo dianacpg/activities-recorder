@@ -33,12 +33,6 @@
       vertical-align: middle;
       width: 24px;
     }
-
-    .stopwatch--started & span {
-      border-radius: 0;
-      height: 22px;
-      width: 22px;
-    }
   }
 
   &-counter {
@@ -47,9 +41,20 @@
     text-align: center;
     transition: opacity 0.3s ease-out;
     width: 80px;
+  }
 
-    .stopwatch--started & {
-      opacity: 1;
+  &--started {
+    .stopwatch {
+      &-button {
+        span {
+          border-radius: 0;
+          height: 22px;
+          width: 22px;
+        }
+      }
+      &-counter {
+        opacity: 1;
+      }
     }
   }
 }
