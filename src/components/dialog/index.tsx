@@ -10,8 +10,8 @@ interface DialogProps {
   onCancel: () => void;
 }
 
-const Dialog = ({ title, description, onCancel, onConfirm }: DialogProps) => {
-  return createPortal(
+const Dialog = ({ title, description, onCancel, onConfirm }: DialogProps) =>
+  createPortal(
     <div className={styles["dialog"]}>
       <div className={styles["dialog__content"]}>
         <h2>{title}</h2>
@@ -28,6 +28,5 @@ const Dialog = ({ title, description, onCancel, onConfirm }: DialogProps) => {
     </div>,
     document.body
   );
-};
 
 export default Dialog;
