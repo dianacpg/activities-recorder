@@ -1,0 +1,31 @@
+@import "../../../styles/index.scss";
+
+.loading-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background-color: get-color("background");
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+
+  .spinner {
+    animation: spin 1s linear infinite;
+    border: 6px solid get-color("border");
+    border-radius: 50%;
+    border-top: 6px solid get-color("secondary");
+    height: 50px;
+    width: 50px;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
