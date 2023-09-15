@@ -2,11 +2,6 @@ import { expect, describe, it, vi } from "vitest";
 import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import Stopwatch from "..";
 
-// Mock the formatSeconds function
-/* jest.mock("../../../lib/utils/format-seconds", () => ({
-  formatSeconds: (seconds: number) => `mocked:${seconds}`,
-})); */
-
 vi.mock("../../../lib/utils/format-seconds", () => ({
   formatSeconds: (seconds: number) => `mocked:${seconds}`,
 }));
