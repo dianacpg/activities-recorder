@@ -2,7 +2,7 @@
 
 ### Note
 
-Project migrated to Vite. You can check previous project here: [project here:](https://github.com/dianacpg/activities-recorder/)
+Project migrated to Vite. You can check it [here:](https://github.com/dianacpg/activities-recorder/)
 
 ## Description
 
