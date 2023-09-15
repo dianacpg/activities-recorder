@@ -4,7 +4,7 @@
 
 The Activities Recorder app lets you easily track your activities in real time using a stopwatch. It also has a calendar that shows all your recorded activities by day, along with their start and end times. You can edit or delete recorded activities whenever you need to.
 
-[**Live Demo 🚀**](https://task-recorder-axhs.onrender.com/)
+[**Live Demo 🚀**]([https://task-recorder-axhs.onrender.com/](https://activities-recorder.vercel.app/)
 
 **Key Features:**
 
