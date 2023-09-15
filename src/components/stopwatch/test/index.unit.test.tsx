@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom/extend-expect";
 import { expect, describe, it, vi } from "vitest";
 import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import Stopwatch from "..";
@@ -7,6 +6,10 @@ import Stopwatch from "..";
 /* jest.mock("../../../lib/utils/format-seconds", () => ({
   formatSeconds: (seconds: number) => `mocked:${seconds}`,
 })); */
+
+vi.mock("../../../lib/utils/format-seconds", () => ({
+  formatSeconds: (seconds: number) => `mocked:${seconds}`,
+}));
 
 describe("Stopwatch component", () => {
   const onStopMock = vi.fn();
@@ -31,7 +34,7 @@ describe("Stopwatch component", () => {
     await waitFor(() => expect(onStopMock).toHaveBeenCalled());
   });
 
-  /*  it("displays the elapsed time while recording", async () => {
+  it("displays the elapsed time while recording", async () => {
     render(testComponent);
 
     const toggleButton = screen.getByRole("button");
@@ -40,5 +43,5 @@ describe("Stopwatch component", () => {
     await waitFor(() => expect(screen.getByText("mocked:1")).toBeInTheDocument());
 
     fireEvent.click(toggleButton); // Stop recording
-  }); */
+  });
 });

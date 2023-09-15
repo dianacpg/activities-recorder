@@ -16,15 +16,15 @@ describe("Button component", () => {
   });
 
   it("applies the 'default' skin", () => {
-    const { container } = testComponent();
-    const buttonElement = container.querySelector(".button");
-    expect(buttonElement).toBeInTheDocument();
+    const { getByText } = testComponent();
+    const buttonElement = getByText("Click Me");
+    expect(buttonElement).toHaveClass("button");
   });
 
   it("applies the 'ghost' skin", () => {
-    const { container } = testComponent("ghost");
-    const buttonElement = container.querySelector(".button--ghost");
-    expect(buttonElement).toBeInTheDocument();
+    const { getByText } = testComponent("ghost");
+    const buttonElement = getByText("Click Me");
+    expect(buttonElement).toHaveClass("button--ghost");
   });
 
   it("fires click event when button is clicked", () => {
