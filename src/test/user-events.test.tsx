@@ -5,7 +5,7 @@ import { screen, waitFor, fireEvent } from "@testing-library/react";
 import { renderWithProviders } from "../store/utils/test-utils";
 // Components
 import App from "../App";
-import { server } from "../mocks/server";
+import { server } from "./mocks/server";
 
 describe("Calendar Integration Test", () => {
   // Start the mock server before running the tests
