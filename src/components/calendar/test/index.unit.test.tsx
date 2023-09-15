@@ -1,7 +1,8 @@
 import { expect, describe, it, vi } from "vitest";
-// React testing library
 import { render } from "@testing-library/react";
+// Components
 import Calendar from "..";
+// Types
 import { GroupedEventsData } from "../../../store/selectors/user-events";
 
 describe("Calendar", () => {

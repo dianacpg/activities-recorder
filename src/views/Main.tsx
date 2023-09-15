@@ -1,8 +1,10 @@
 // React
 import { ReactElement, useEffect } from "react";
+import { useSelector } from "react-redux";
 // Components
-import Stopwatch from "./../components/stopwatch";
 import Calendar from "./../components/calendar";
+import LoadingSpinner from "./../components/loading-spinner";
+import Stopwatch from "./../components/stopwatch";
 // Store
 import {
   createUserEvent,
@@ -10,14 +12,13 @@ import {
   fetchUserEvents,
   updateUserEvent,
 } from "./../store/modules/user-events";
-import { useDispatch, useSelector } from "react-redux";
 import { selectGroupedEvents } from "./../store/selectors/user-events";
 // Types
 import { UserEvent } from "./../lib/services";
-import LoadingSpinner from "./../components/loading-spinner";
+import { useAppDispatch } from "../store/hooks";
 
 function Main(): ReactElement {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const events = useSelector(selectGroupedEvents);
   const isLoading = events?.loading;
 
@@ -40,7 +41,7 @@ function Main(): ReactElement {
 
   useEffect(() => {
     void dispatch(fetchUserEvents());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

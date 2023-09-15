@@ -65,7 +65,7 @@ const Stopwatch = ({ onStop }: StopwatchProps): ReactElement => {
         className={styles["stopwatch-button"]}
         data-testid="stopwatch-button"
       >
-        <span></span>
+        <span />
       </button>
       <div className={styles["stopwatch-counter"]}>{counterText}</div>
     </div>

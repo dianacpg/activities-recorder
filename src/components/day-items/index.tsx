@@ -3,10 +3,10 @@ import { ReactElement, useState } from "react";
 // Styles
 import styles from "./styles/day-items.module.scss";
 // Components
+import Button from "../button";
 import EventItem from "../event-item";
 // Store
 import { UserEvent } from "../../lib/services";
-import Button from "../button";
 
 interface DayItemsProps {
   month: string;

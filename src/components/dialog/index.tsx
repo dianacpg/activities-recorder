@@ -1,6 +1,7 @@
 import { createPortal } from "react-dom";
 // Style
 import styles from "./styles/dialog.module.scss";
+// Components
 import Button from "../button";
 
 interface DialogProps {

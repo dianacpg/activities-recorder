@@ -5,9 +5,9 @@ import { createDateKey } from "./create-date-key";
 /**
  * Adds an event to the group corresponding to the given date key.
  *
- * @param {string} dateKey - The date key for grouping events (in the format 'YYYY-MM-DD').
- * @param {UserEvent} event - The UserEvent object to be added to the group.
- * @param {GroupedEvents} groups - groups where event is being injected
+ * @param dateKey - The date key for grouping events (in the format 'YYYY-MM-DD').
+ * @param  event - The UserEvent object to be added to the group.
+ * @param groups - groups where event is being injected
  */
 
 // Adds an event to the group corresponding to the given date key.
@@ -22,8 +22,8 @@ const addToGroup = (dateKey: string, event: UserEvent, groups: GroupedEvents) =>
 /**
  * Groups an array of UserEvent objects by day based on their dateStart and dateEnd properties.
  *
- * @param {UserEvent[]} events - An array of UserEvent objects to be grouped.
- * @returns {GroupedEvents} An object with date keys as properties and arrays of UserEvent objects as values.
+ * @param events - An array of UserEvent objects to be grouped.
+ * @returns An object with date keys as properties and arrays of UserEvent objects as values.
  */
 
 export const groupEventsByDay = (events: UserEvent[]): Record<string, UserEvent[]> => {

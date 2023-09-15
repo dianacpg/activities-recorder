@@ -1,4 +1,5 @@
 import { rest } from "msw";
+// Types
 import { UserEvent } from "../lib/services";
 
 const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;

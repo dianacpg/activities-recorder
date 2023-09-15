@@ -1,7 +1,7 @@
 // Types
-import { createSelector } from "@reduxjs/toolkit";
 import { AppState } from "..";
 import { UserEvent } from "../../lib/services";
+import { createSelector } from "@reduxjs/toolkit";
 // Utils
 import { groupEventsByDay } from "../../lib/utils/group-events-by-day";
 

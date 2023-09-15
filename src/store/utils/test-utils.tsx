@@ -1,10 +1,14 @@
-import React, { PropsWithChildren } from "react";
+// React
+import React from "react";
+// Testing Library
 import { render, RenderResult } from "@testing-library/react";
 import type { RenderOptions } from "@testing-library/react";
-import { configureStore } from "@reduxjs/toolkit";
+// Store
+import { initialState as initialUserEventsState } from "../modules/user-events";
+// Redux
 import type { PreloadedState } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import { initialState as initialUserEventsState } from "../modules/user-events";
+import { configureStore } from "@reduxjs/toolkit";
 
 import store, { AppState, rootReducer } from "..";
 
@@ -29,9 +33,10 @@ export function renderWithProviders(
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ): CustomRenderResult {
-  function Wrapper({ children }: PropsWithChildren<React.ReactNode>): JSX.Element {
-    return <Provider store={store}>{children}</Provider>;
-  }
+  const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+    <Provider store={store}>{children}</Provider>
+  );
+
   const renderResult = render(ui, { wrapper: Wrapper, ...renderOptions });
 
   const customResult: CustomRenderResult = {

@@ -90,10 +90,6 @@ export const deleteUserEvent = createAsyncThunk(
 
 /**
  * Updates user event title by its id.
- * @example
- * dispatch(updateUserEvent({
- * id, dto
- * }));
  */
 
 export const updateUserEvent = createAsyncThunk(

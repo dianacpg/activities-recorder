@@ -6,8 +6,9 @@ import styles from "./styles/event-item.module.scss";
 import { UserEvent } from "../../lib/services";
 // Utils
 import { createDateKey } from "../../lib/utils/create-date-key";
-import Dialog from "../dialog";
+// Components
 import Button from "../button";
+import Dialog from "../dialog";
 interface EventItemProps {
   event: UserEvent;
   onDelete: (id: number) => void;
