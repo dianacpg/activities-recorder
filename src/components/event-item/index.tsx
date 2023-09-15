@@ -8,7 +8,7 @@ import { UserEvent } from "../../lib/services";
 import { createDateKey } from "../../lib/utils/create-date-key";
 // Components
 import Button from "../button";
-import Dialog from "../dialog";
+import { useDialog } from "../dialog/hooks";
 interface EventItemProps {
   event: UserEvent;
   onDelete: (id: number) => void;
@@ -21,8 +21,9 @@ const EventItem = ({ event, onUpdate, onDelete }: EventItemProps): ReactElement 
   const inputRef = useRef<HTMLInputElement>(null);
   const [editable, setEditable] = useState(false);
   const [title, setTitle] = useState(event.title);
-  const [showModal, setShowModal] = useState(false);
 
+  // Hook to open the confirmation dialog.
+  const { openConfirmation } = useDialog();
   const handleTitleClick = () => {
     setEditable(true);
   };
@@ -67,10 +68,20 @@ const EventItem = ({ event, onUpdate, onDelete }: EventItemProps): ReactElement 
           )}
         </div>
       </div>
-      <Button skin="ghost" onClick={() => setShowModal(true)}>
+      <Button
+        skin="ghost"
+        onClick={() =>
+          openConfirmation({
+            title: `Delete ${event.title}`,
+            description: "Are you sure you want to delete this event?",
+            onConfirm: () => onDelete(event.id),
+            onCancel: () => undefined,
+          })
+        }
+      >
         x
       </Button>
-      {showModal && (
+      {/*  {showModal && (
         <Dialog
           title={`Are you sure you want to delete "${event.title}"?`}
           onCancel={() => setShowModal(false)}
@@ -79,7 +90,7 @@ const EventItem = ({ event, onUpdate, onDelete }: EventItemProps): ReactElement 
             setShowModal(false);
           }}
         />
-      )}
+      )} */}
     </div>
   );
 };

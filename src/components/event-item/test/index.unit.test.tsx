@@ -51,13 +51,13 @@ describe("EventItem", () => {
   });
 
   it("show dialog when click on delete button", () => {
-    const { getByText } = render(mockElement);
+    const { getByText, getByTestId } = render(mockElement);
 
     const deleteButton = getByText("x");
     fireEvent.click(deleteButton);
 
-    const deleteText = getByText(/Are you sure you want to delete/i);
+    const dialog = getByTestId("dialog");
 
-    expect(deleteText).toBeInTheDocument();
+    expect(dialog).toBeInTheDocument();
   });
 });

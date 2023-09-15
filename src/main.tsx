@@ -1,7 +1,8 @@
+import { Provider } from "react-redux";
 import React from "react";
 import ReactDOM from "react-dom/client";
-// Redux
-import { Provider } from "react-redux";
+// Context
+import { DialogProvider } from "./components/dialog/DialogContext.tsx";
 // Components
 import App from "./App.tsx";
 // Store
@@ -9,8 +10,10 @@ import store from "./store";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <DialogProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </DialogProvider>
   </React.StrictMode>
 );
