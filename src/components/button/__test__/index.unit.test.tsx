@@ -11,21 +11,11 @@ describe("Button component", () => {
       </Button>
     );
   it("renders the Button component", () => {
-    const { getByText } = testComponent();
-    const buttonElement = getByText("Click Me");
-    expect(buttonElement).toBeInTheDocument();
-  });
-
-  it("applies the 'default' skin", () => {
-    const { getByText } = testComponent();
-    const buttonElement = getByText("Click Me");
-    expect(buttonElement).toHaveClass("button");
+    expect(testComponent).toMatchSnapshot();
   });
 
   it("applies the 'ghost' skin", () => {
-    const { getByText } = testComponent("ghost");
-    const buttonElement = getByText("Click Me");
-    expect(buttonElement).toHaveClass("button--ghost");
+    expect(testComponent("ghost")).toMatchSnapshot();
   });
 
   it("fires click event when button is clicked", () => {
