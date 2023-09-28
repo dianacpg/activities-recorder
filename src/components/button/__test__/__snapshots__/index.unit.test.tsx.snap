@@ -11,13 +11,6 @@ exports[`Button component > applies the 'ghost' skin 1`] = `
         Click Me
       </button>
     </div>
-    <div>
-      <button
-        class="button--ghost"
-      >
-        Click Me
-      </button>
-    </div>
   </body>,
   "container": <div>
     <button
