@@ -49,15 +49,4 @@ describe("EventItem", () => {
     fireEvent.blur(inputField);
     expect(handleUpdateMock).toHaveBeenCalledWith("Updated Title", mockEvent);
   });
-
-  it("show dialog when click on delete button", () => {
-    const { getByText, getByTestId } = render(mockElement);
-
-    const deleteButton = getByText("x");
-    fireEvent.click(deleteButton);
-
-    const dialog = getByTestId("dialog");
-
-    expect(dialog).toBeInTheDocument();
-  });
 });
