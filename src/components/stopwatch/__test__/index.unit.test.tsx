@@ -11,10 +11,7 @@ describe("Stopwatch component", () => {
   const testComponent = <Stopwatch onStop={onStopMock} />;
 
   it("renders without errors", () => {
-    render(testComponent);
-    const stopwatchButton = screen.getByRole("button");
-    expect(stopwatchButton).toBeInTheDocument();
-    expect(stopwatchButton).toHaveClass("stopwatch-button");
+    expect(render(testComponent)).toMatchSnapshot();
   });
 
   it("starts recording when the button is clicked and stops when clicked again", async () => {
