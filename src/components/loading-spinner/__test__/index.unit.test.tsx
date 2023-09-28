@@ -5,8 +5,6 @@ import LoadingSpinner from "..";
 
 describe("LoadingSpinner", () => {
   it("renders loading spinner component without errors", () => {
-    const { getByTestId } = render(<LoadingSpinner />);
-
-    expect(getByTestId("loading-spinner")).toBeInTheDocument();
+    expect(render(<LoadingSpinner />)).toMatchSnapshot();
   });
 });
