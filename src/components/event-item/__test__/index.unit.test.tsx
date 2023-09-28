@@ -18,10 +18,7 @@ const mockElement = (
 
 describe("EventItem", () => {
   it("renders the event title", () => {
-    const { getByText } = render(mockElement);
-
-    const eventTitle = getByText("Test Event");
-    expect(eventTitle).toBeInTheDocument();
+    expect(render(mockElement)).toMatchSnapshot();
   });
 
   it("allows editing the event title", () => {
