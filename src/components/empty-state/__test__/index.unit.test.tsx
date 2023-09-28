@@ -5,8 +5,8 @@ import EmptyState from "..";
 
 describe("EmptyState", () => {
   it("renders EmptyState component without errors", () => {
-    const { getByText } = render(<EmptyState />);
+    const testComponent = render(<EmptyState />);
 
-    expect(getByText("There is no activities recorded yet.")).toBeInTheDocument();
+    expect(testComponent).toMatchSnapshot();
   });
 });
