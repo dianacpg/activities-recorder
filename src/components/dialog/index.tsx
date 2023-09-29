@@ -1,11 +1,9 @@
 // React
 import { useEffect, useState } from "react";
-
 import { createPortal } from "react-dom";
-// Style
-import styles from "./styles/dialog.module.scss";
 // Components
-import Button from "../button";
+import Dialog from "./Dialog";
+// Hooks
 import { useDialog } from "./hooks";
 // Context
 import { DialogContextDefaults } from "./DialogContext";
@@ -17,7 +15,7 @@ export interface DialogProps {
   onCancel?: () => void;
 }
 
-const Dialog = () => {
+const DialogPortal = () => {
   const [dialogProps, setDialogProps] = useState<DialogProps>();
 
   const { setConfirmationDialog, setDialogOpen, isDialogOpen } = useDialog();
@@ -29,42 +27,22 @@ const Dialog = () => {
         setDialogOpen(true);
         setDialogProps({
           ...props,
+          onCancel: (): void => {
+            props.onCancel && props.onCancel();
+            setDialogOpen(false);
+          },
+          onConfirm: (): void => {
+            props.onConfirm && props.onConfirm();
+            setDialogOpen(false);
+          },
         });
       },
     });
   }, [setConfirmationDialog, setDialogOpen]);
 
-  if (!isDialogOpen) return;
+  if (!isDialogOpen || !dialogProps) return;
 
-  return createPortal(
-    <div data-testid="dialog" className={styles["dialog"]}>
-      <div className={styles["dialog__content"]}>
-        <h2>{dialogProps?.title}</h2>
-        <p>{dialogProps?.description}</p>
-        <footer className={styles["dialog__footer"]} data-testid="custom-element">
-          <Button
-            data-testid="cancel-dialog"
-            onClick={(): void => {
-              setDialogOpen(false);
-              dialogProps?.onCancel && dialogProps?.onCancel();
-            }}
-          >
-            Cancel
-          </Button>
-          <Button
-            data-testid="confirm-dialog"
-            onClick={(): void => {
-              setDialogOpen(false);
-              dialogProps?.onConfirm();
-            }}
-          >
-            Confirm
-          </Button>
-        </footer>
-      </div>
-    </div>,
-    document.body
-  );
+  return createPortal(<Dialog {...dialogProps} />, document.body);
 };
 
-export default Dialog;
+export default DialogPortal;

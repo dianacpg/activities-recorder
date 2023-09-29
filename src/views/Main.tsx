@@ -3,7 +3,7 @@ import { ReactElement, useEffect } from "react";
 import { useSelector } from "react-redux";
 // Components
 import Calendar from "./../components/calendar";
-import Dialog from "../components/dialog";
+import DialogPortal from "../components/dialog";
 import LoadingSpinner from "./../components/loading-spinner";
 import Stopwatch from "./../components/stopwatch";
 // Store
@@ -56,7 +56,7 @@ function Main(): ReactElement {
             onDelete={(id) => handleDeleteEvent(id)}
             onUpdate={handleUpdateEvent}
           />
-          <Dialog />
+          <DialogPortal />
         </>
       )}
     </div>
