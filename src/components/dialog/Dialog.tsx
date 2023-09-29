@@ -15,7 +15,7 @@ const Dialog = ({ title, description, onConfirm, onCancel }: DialogProps) => (
     <div className={styles["dialog__content"]}>
       <h2>{title}</h2>
       <p>{description}</p>
-      <footer className={styles["dialog__footer"]} data-testid="custom-element">
+      <footer className={styles["dialog__footer"]}>
         <Button data-testid="cancel-dialog" onClick={onCancel}>
           Cancel
         </Button>
