@@ -29,7 +29,6 @@ The Activities Recorder app lets you easily track your activities in real time u
 - Prettier;
 - Vitest;
 - react-testing-library;
-- Mock Service Worker;
 
 ## Setup
 
